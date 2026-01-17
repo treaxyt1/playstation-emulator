@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ePSXemu - Play PlayStation 1 Games in Your Browser | Free PS1 Emulator</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JE0D96VNJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2JE0D96VNJ');
+    </script>
+
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Play classic PS1 games directly in your browser with ePSXemu. No downloads, no installation. Free browser-based PlayStation emulator with save states and mobile support.">
+    <meta name="keywords"
+        content="ePSXemu, PS1 emulator, playstation emulator online, psx emulator browser, play ps1 games online">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/mobile-gamepad.css">
+    <style>
+        /* Home Specific Layout */
+        .hero-banner {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(0, 112, 204, 0.15) 0%, transparent 70%);
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        /* Emulator Main Container */
+        .emulator-section {
+            padding: 40px 0 100px;
+            background: #050714;
+        }
+
+        .emulator-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 30px;
+            background: #0a0e27;
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .library-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 600px;
+        }
+
+        .game-canvas-wrapper {
+            position: relative;
+            aspect-ratio: 4/3;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 4px solid #1a1f3a;
+        }
+
+        .emulator-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .control-bar {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px 25px;
+            border-radius: 12px;
+        }
+
+        .library-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .library-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .library-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .game-card-mini {
+            display: grid;
+            grid-template-columns: 50px 1fr 40px;
+            gap: 15px;
+            align-items: center;
+            padding: 12px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            margin-bottom: 10px;
+            transition: 0.2s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .game-card-mini:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 217, 255, 0.3);
+        }
+
+        .game-card-mini.active {
+            background: rgba(0, 112, 204, 0.2);
+            border-color: var(--ps-blue-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .emulator-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .library-panel {
+                height: auto;
+                max-height: 400px;
+                order: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-banner {
+                height: auto;
+                min-height: 50vh;
+                padding: 120px 0 40px;
+            }
+
+            .hero-title {
+                font-size: 2rem !important;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .emulator-section {
+                padding: 30px 0 280px;
+                /* Extra padding for mobile gamepad */
+            }
+
+            .emulator-layout {
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .library-panel {
+                max-height: 300px;
+            }
+
+            .game-canvas-wrapper {
+                border-width: 2px;
+            }
+
+            .control-bar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .control-bar>div {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .keyboard-controls {
+                padding: 12px 15px !important;
+                font-size: 0.75rem !important;
+            }
+
+            .keyboard-controls p {
+                font-size: 0.75rem !important;
+            }
+
+            .scroll-hint {
+                position: relative !important;
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-banner {
+                padding: 100px 0 30px;
+            }
+
+            .hero-title {
+                font-size: 1.75rem !important;
+            }
+
+            .emulator-layout {
+                padding: 15px;
+            }
+
+            .library-panel {
+                max-height: 250px;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Help Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: none;
+            place-items: center;
+            z-index: 3000;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: grid;
+        }
+
+        .help-modal {
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 24px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: 0.2s;
+        }
+
+        .close-modal:hover {
+            opacity: 1;
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .control-item {
+            display: flex;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .key-hint {
+            color: var(--cyan-accent);
+            font-family: monospace;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar" class="scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">eP</div>
+                ePSX<span>emu</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="roms.html" style="color:var(--cyan-accent)">Find ROMs</a></li>
+                <li><a href="guide.html">Guides</a></li>
+                <li><a href="games.html">Database</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <div style="display:flex; gap:10px;">
+                <a href="#emulator" class="btn btn-primary" style="padding:8px 20px; font-size:12px;">Launch Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-banner container">
+            <span class="glass-pill" style="margin-bottom:20px;">v2.1 STABLE RELEASE</span>
+            <h1 class="hero-title text-gradient">Play PlayStation 1<br>Instantly In Your Browser</h1>
+            <p class="hero-subtitle">No downloads. No installs. High-performance PS1 emulation powered by WebAssembly.
+                Just upload your ROM and relived the legends.</p>
+
+            <!-- Keyboard Controls Info -->
+            <div class="keyboard-controls"
+                style="margin-top: 25px; padding: 15px 25px; background: rgba(255,255,255,0.05); border-radius: 12px; display: inline-block;">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
+                    <strong style="color: var(--cyan-accent);">Keyboard Controls:</strong>
+                    Arrows = D-Pad • Z = Cross • X = Circle • S = Square • D = Triangle • V = Start • C = Select
+                </p>
+            </div>
+
+            <div class="scroll-hint" onclick="document.getElementById('emulator').scrollIntoView({behavior:'smooth'})">>
+                <p style="font-size:11px; margin-bottom:10px; color:var(--text-muted)">SCROLL TO PLAY</p>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- EMULATOR MAIN SECTION -->
+        <section id="emulator" class="emulator-section">
+            <div class="container">
+                <div class="emulator-layout glass">
+                    <!-- Library Sidebar -->
+                    <aside class="library-panel">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <h3>My Library</h3>
+                            <button id="add-rom-btn" class="glass-pill" style="cursor:pointer; padding:6px 12px;">+ Add
+                                ROM</button>
+                        </div>
+                        <div class="library-scroll" id="rom-list">
+                            <!-- Empty State -->
+                            <div id="library-empty"
+                                style="text-align:center; padding:40px 20px; color:var(--text-muted);">
+                                <div style="font-size:2rem; margin-bottom:15px;">💿</div>
+                                <p style="font-size:0.85rem;">No games found. Upload your first .bin file to start your
+                                    collection!</p>
+                            </div>
+                        </div>
+                        <input type="file" id="rom-upload-input" accept=".bin" style="display:none">
+                    </aside>
+
+                    <!-- Core Emulator Display -->
+                    <div class="emulator-display">
+                        <div class="game-canvas-wrapper" id="drop-zone">
+                            <iframe id="emu-frame" src="PlayStationMenu.htm" class="emulator-iframe"></iframe>
+
+                            <!-- Internal Drop Overlay -->
+                            <div id="drop-overlay"
+                                style="display:none; position:absolute; inset:0; background:rgba(0,112,204,0.4); backdrop-filter:blur(4px); z-index:10; place-items:center; text-align:center;">
+                                <h2 class="display-font">Drop To Install Game</h2>
+                            </div>
+                        </div>
+
+                        <div class="control-bar">
+                            <div style="display:flex; gap:12px;">
+                                <button class="btn btn-ghost" id="emu-reset" title="Restart System">🔄</button>
+                                <button class="btn btn-ghost" id="emu-sound" title="Toggle Sound">🔊</button>
+                                <button class="btn btn-ghost" id="emu-info" title="How to Play">ℹ️</button>
+                            </div>
+                            <div style="font-size:0.75rem; color:var(--text-muted); font-family:monospace;"
+                                id="status-display">SYSTEM READY (HLE BIOS)</div>
+                            <button class="btn btn-primary" id="emu-fs"
+                                style="padding:10px 20px; font-size:12px;">Fullscreen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Start Guide -->
+        <section class="section-padding container">
+            <div style="text-align:center; margin-bottom:60px;">
+                <span class="section-tag">Quick Start</span>
+                <h2>Three Steps to Play</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card glass">
+                    <div style="font-size:2rem; color:var(--cyan-accent); margin-bottom:15px;">01</div>
+                    <h3 class="feature-title">Load your ROM</h3>
+                    <p>Drag your .bin file directly into the emulator or use the library sidebar to manage your local
+                        archive.</p>
+                </div>
+                <div class="feature-card glass">
+                    <div style="font-size:2rem; color:var(--cyan-accent); margin-bottom:15px;">02</div>
+                    <h3 class="feature-title">Configure</h3>
+                    <p>Connect any USB controller (Xbox, DualShock) or use the default keyboard mapping: Z, X, S, D,
+                        Arrows.</p>
+                </div>
+                <div class="feature-card glass">
+                    <div style="font-size:2rem; color:var(--cyan-accent); margin-bottom:15px;">03</div>
+                    <h3 class="feature-title">Relive History</h3>
+                    <p>Enjoy near-native performance. Save your state at any time and pick up exactly where you left
+                        off.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <a href="index.html" class="logo footer-logo">ePSX<span>emu</span></a>
+                <p style="color:var(--text-muted); font-size:0.85rem; max-width:280px;">The world's most accessible
+                    PlayStation emulation platform. Browser-based, open source, and privacy first.</p>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <ul class="footer-list">
+                    <li><a href="roms.html">Find ROMs</a></li>
+                    <li><a href="games.html">Database</a></li>
+                    <li><a href="guide.html">User Guide</a></li>
+                    <li><a href="features.html">Features</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Technical</h4>
+                <ul class="footer-list">
+                    <li><a href="about.html">About project</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog.html">Latest News</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul class="footer-list">
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="terms.html">TOS</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="dmca.html">DMCA</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container" style="border-top:1px solid rgba(255,255,255,0.05); padding:30px 0; text-align:center;">
+            <p style="font-size:0.75rem; color:var(--text-muted);">© 2026 ePSXemu. Built with pride for game
+                preservation. PlayStation is a trademark of SIE.</p>
+        </div>
+    </footer>
+
+    <!-- Help Modal Overlay -->
+    <div class="modal-overlay" id="help-modal-overlay">
+        <div class="help-modal glass">
+            <button class="close-modal" id="close-help">&times;</button>
+            <h2 class="display-font" style="margin-bottom:10px;">How to Play</h2>
+            <p style="color:var(--text-secondary); font-size:0.9rem;">Master the controls and start your adventure.</p>
+
+            <div class="controls-grid">
+                <div class="control-item"><span>D-Pad</span> <span class="key-hint">Arrow Keys</span></div>
+                <div class="control-item"><span>Start</span> <span class="key-hint">V</span></div>
+                <div class="control-item"><span>Select</span> <span class="key-hint">C</span></div>
+                <div class="control-item"><span>Cross / X</span> <span class="key-hint">Z</span></div>
+                <div class="control-item"><span>Circle</span> <span class="key-hint">X</span></div>
+                <div class="control-item"><span>Square</span> <span class="key-hint">S</span></div>
+                <div class="control-item"><span>Triangle</span> <span class="key-hint">D</span></div>
+                <div class="control-item"><span>L1 / R1</span> <span class="key-hint">Q / E</span></div>
+                <div class="control-item"><span>L2 / R2</span> <span class="key-hint">W / R</span></div>
+            </div>
+
+            <div style="margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
+                <h4 style="margin-bottom:10px;">Quick Steps:</h4>
+                <ol style="padding-left:20px; font-size:0.85rem; color:var(--text-secondary); line-height:1.6;">
+                    <li>Add your <strong>.bin</strong> ROM file using the sidebar or drag & drop.</li>
+                    <li>Click the game in your library to load the data.</li>
+                    <li>Once the emulator boots to the BIOS menu, press <strong>Enter</strong> or the <strong>V</strong>
+                        key to start.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/library-db.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/mobile-gamepad.js"></script>
+</body>
+
+</html>

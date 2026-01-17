@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JE0D96VNJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2JE0D96VNJ');
+    </script>
+
+    <title>How It Works - PSX WebHub Guide</title>
+    <link rel="stylesheet" href="css/design-system.css">
+    <style>
+        .page-content {
+            padding: 140px 0 80px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            margin-bottom: 60px;
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: hsl(var(--ps-blue-light));
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+        }
+
+        .guide-image {
+            width: 100%;
+            border-radius: 12px;
+            margin: 24px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-item {
+            margin-bottom: 24px;
+            padding: 24px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .faq-q {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: hsl(var(--cyan-accent));
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 12h12M12 6v12M12 12l4 4M12 12l-4-4" />
+                    </svg>
+                </div>
+                PSX<span>WebHub</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="play.html">Play Now</a></li>
+                <li><a href="guide.html">How It Works</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-content">
+        <h1 class="text-gradient" style="margin-bottom:40px;">Getting Started</h1>
+
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Prepare Your Game Data</h3>
+            <p>PSX WebHub requires your PlayStation game files to be in the <strong>.bin</strong> format. If you have a
+                zip file, please extract it first. Ensure you have the legal right to use the ROM files you upload.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Launch the Emulator</h3>
+            <p>Navigate to our <a href="play.html" style="color:hsl(var(--cyan-accent));">Emulator Hub</a>. The
+                interface will initialize the WebAssembly core automatically.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Load Your .bin File</h3>
+            <p>Simply drag your game file into the designated drop zone on the sidebar, or click the zone to select the
+                file using your browser's file picker.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">4</div>
+            <h3>Game On!</h3>
+            <p>Once loaded, click the "Start" (V) key to begin. Use the keyboard mapping or connect a USB gamepad for
+                the best experience. Use F11 to go full-screen.</p>
+        </div>
+
+        <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin:60px 0;">
+
+        <h2 style="margin-bottom:30px;">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <div class="faq-q">Does this work on mobile?</div>
+            <p>Yes! PSX WebHub is fully responsive and supports touch-based screen controls on tablets and mobile
+                phones.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Where do I find games?</div>
+            <p>We do not provide or host any ROM files. You should create backups of your own physical PlayStation discs
+                or obtain digital versions from authorized sources.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">My game is lagging. How do I fix it?</div>
+            <p>Ensure hardware acceleration is enabled in your browser. Closing other browser tabs and heavy background
+                apps can also improve performance.</p>
+        </div>
+    </div>
+
+    <footer style="padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+        <p style="color:hsl(var(--text-muted)); font-size:0.8rem;">&copy; 2026 PSX WebHub.</p>
+    </footer>
+
+</body>
+
+</html>

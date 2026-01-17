@@ -1,0 +1,618 @@
+/**
+ * Mobile Gamepad Styles
+ * Premium touch controls for ePSXemu
+ */
+
+.mobile-gamepad {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 220px;
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 15px;
+    z-index: 2000;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    pointer-events: auto;
+}
+
+/* Prevent text selection and callouts */
+.mobile-gamepad * {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ============================================
+   THEME: MODERN (DEFAULT)
+   ============================================ */
+
+.mobile-gamepad.theme-modern {
+    background: linear-gradient(to top, rgba(10, 14, 39, 0.95) 0%, rgba(10, 14, 39, 0.7) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 217, 255, 0.3);
+}
+
+.mobile-gamepad.theme-modern button {
+    background: linear-gradient(135deg, rgba(0, 55, 145, 0.8), rgba(0, 112, 204, 0.8));
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 112, 204, 0.3);
+}
+
+.mobile-gamepad.theme-modern button:active,
+.mobile-gamepad.theme-modern button.pressed {
+    background: linear-gradient(135deg, rgba(0, 112, 204, 1), rgba(0, 217, 255, 0.9));
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.8);
+    transform: scale(0.92);
+}
+
+/* ============================================
+   THEME: CLASSIC PLAYSTATION
+   ============================================ */
+
+.mobile-gamepad.theme-classic {
+    background: linear-gradient(to top, rgba(139, 139, 139, 0.95) 0%, rgba(139, 139, 139, 0.7) 100%);
+    border-top: 2px solid #555;
+}
+
+.mobile-gamepad.theme-classic button {
+    background: linear-gradient(135deg, #666, #888);
+    border: 1px solid #333;
+    color: white;
+}
+
+.mobile-gamepad.theme-classic button:active,
+.mobile-gamepad.theme-classic button.pressed {
+    background: linear-gradient(135deg, #888, #aaa);
+    transform: scale(0.92);
+}
+
+/* ============================================
+   THEME: NEON
+   ============================================ */
+
+.mobile-gamepad.theme-neon {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.85) 100%);
+    border-top: 2px solid #00D9FF;
+    box-shadow: 0 -5px 30px rgba(0, 217, 255, 0.3);
+}
+
+.mobile-gamepad.theme-neon button {
+    background: transparent;
+    border: 2px solid #00D9FF;
+    color: #00D9FF;
+    text-shadow: 0 0 10px #00D9FF;
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
+}
+
+.mobile-gamepad.theme-neon button:active,
+.mobile-gamepad.theme-neon button.pressed {
+    background: rgba(0, 217, 255, 0.2);
+    box-shadow: 0 0 25px #00D9FF;
+    transform: scale(0.92);
+}
+
+/* ============================================
+   THEME: MINIMAL
+   ============================================ */
+
+.mobile-gamepad.theme-minimal {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-gamepad.theme-minimal button {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.mobile-gamepad.theme-minimal button:active,
+.mobile-gamepad.theme-minimal button.pressed {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0.92);
+}
+
+/* ============================================
+   SIZE VARIATIONS
+   ============================================ */
+
+.mobile-gamepad.size-small {
+    height: 180px;
+    transform: scale(0.85);
+    transform-origin: bottom center;
+}
+
+.mobile-gamepad.size-medium {
+    height: 220px;
+}
+
+.mobile-gamepad.size-large {
+    height: 260px;
+    transform: scale(1.15);
+    transform-origin: bottom center;
+}
+
+/* ============================================
+   LAYOUT SECTIONS
+   ============================================ */
+
+.gamepad-left,
+.gamepad-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.gamepad-center {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+}
+
+/* ============================================
+   D-PAD
+   ============================================ */
+
+.dpad-container {
+    position: relative;
+}
+
+.dpad {
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    grid-template-rows: 50px 50px 50px;
+    gap: 2px;
+    position: relative;
+}
+
+.dpad-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.05s ease-out;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.dpad-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.dpad-up {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.dpad-left {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.dpad-center {
+    grid-column: 2;
+    grid-row: 2;
+    background: rgba(0, 0, 0, 0.3) !important;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.dpad-right {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.dpad-down {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+/* ============================================
+   ACTION BUTTONS
+   ============================================ */
+
+.action-buttons-container {
+    position: relative;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: 65px 65px 65px;
+    grid-template-rows: 65px 65px 65px;
+    gap: 2px;
+    position: relative;
+}
+
+.action-btn {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.05s ease-out;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.btn-symbol {
+    font-size: 32px;
+    line-height: 1;
+}
+
+/* PlayStation button colors */
+.btn-triangle {
+    grid-column: 2;
+    grid-row: 1;
+    background: linear-gradient(135deg, #10B981, #059669) !important;
+}
+
+.btn-circle {
+    grid-column: 3;
+    grid-row: 2;
+    background: linear-gradient(135deg, #EF4444, #DC2626) !important;
+}
+
+.btn-cross {
+    grid-column: 1;
+    grid-row: 2;
+    background: linear-gradient(135deg, #3B82F6, #2563EB) !important;
+}
+
+.btn-square {
+    grid-column: 2;
+    grid-row: 3;
+    background: linear-gradient(135deg, #EC4899, #DB2777) !important;
+}
+
+.action-btn:active,
+.action-btn.pressed {
+    transform: scale(0.88);
+    filter: brightness(1.3);
+}
+
+/* ============================================
+   SHOULDER BUTTONS
+   ============================================ */
+
+.shoulder-buttons-left,
+.shoulder-buttons-right {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.shoulder-btn {
+    width: 70px;
+    height: 35px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: all 0.05s ease-out;
+    cursor: pointer;
+}
+
+.shoulder-btn:active,
+.shoulder-btn.pressed {
+    transform: scale(0.92);
+    filter: brightness(1.2);
+}
+
+/* ============================================
+   CENTER BUTTONS (START/SELECT)
+   ============================================ */
+
+.center-btn {
+    width: 85px;
+    height: 32px;
+    border-radius: 16px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.05s ease-out;
+    cursor: pointer;
+}
+
+.center-btn:active,
+.center-btn.pressed {
+    transform: scale(0.92);
+    filter: brightness(1.2);
+}
+
+/* Settings button */
+.settings-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 5px;
+}
+
+.settings-btn:active {
+    transform: scale(0.9);
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ============================================
+   SETTINGS PANEL
+   ============================================ */
+
+.gamepad-settings-panel {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 3000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.settings-content {
+    max-width: 400px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.settings-content h3 {
+    margin-bottom: 25px;
+    color: var(--cyan-accent);
+    font-size: 1.3rem;
+}
+
+.close-settings {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close-settings:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.setting-group {
+    margin-bottom: 20px;
+}
+
+.setting-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.setting-group select,
+.setting-group input[type="range"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.9rem;
+}
+
+.setting-group input[type="range"] {
+    padding: 0;
+    height: 6px;
+    cursor: pointer;
+}
+
+.setting-group input[type="checkbox"] {
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.size-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.size-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.size-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.size-btn.active {
+    background: linear-gradient(135deg, hsl(var(--ps-blue)), hsl(var(--ps-blue-light)));
+    border-color: var(--cyan-accent);
+}
+
+/* ============================================
+   PORTRAIT ORIENTATION
+   ============================================ */
+
+@media (orientation: portrait) {
+    .mobile-gamepad {
+        height: auto;
+        flex-direction: column;
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .mobile-gamepad.size-small {
+        transform: scale(0.8);
+    }
+
+    .mobile-gamepad.size-large {
+        transform: scale(1.1);
+    }
+
+    .gamepad-left,
+    .gamepad-right {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .gamepad-center {
+        order: 2;
+        flex-direction: row;
+        padding-bottom: 0;
+    }
+
+    .gamepad-left {
+        order: 3;
+    }
+
+    .gamepad-right {
+        order: 1;
+    }
+}
+
+/* ============================================
+   LANDSCAPE ORIENTATION
+   ============================================ */
+
+@media (max-width: 896px) and (orientation: landscape) {
+    .mobile-gamepad {
+        height: 180px;
+        padding: 10px 15px;
+    }
+
+    .dpad {
+        grid-template-columns: 45px 45px 45px;
+        grid-template-rows: 45px 45px 45px;
+    }
+
+    .dpad-btn {
+        width: 45px;
+        height: 45px;
+    }
+
+    .action-buttons {
+        grid-template-columns: 55px 55px 55px;
+        grid-template-rows: 55px 55px 55px;
+    }
+
+    .action-btn {
+        width: 55px;
+        height: 55px;
+    }
+
+    .shoulder-btn {
+        width: 60px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+    .center-btn {
+        width: 75px;
+        height: 28px;
+        font-size: 9px;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes button-press {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.88);
+    }
+
+    100% {
+        transform: scale(0.92);
+    }
+}
+
+@keyframes ripple {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .mobile-gamepad button {
+        transition: none;
+        animation: none;
+    }
+}
+
+@media (prefers-contrast: high) {
+    .mobile-gamepad {
+        background: rgba(0, 0, 0, 0.98);
+        border-top: 3px solid white;
+    }
+
+    .mobile-gamepad button {
+        border: 2px solid white;
+    }
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+.mobile-gamepad,
+.mobile-gamepad button {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}

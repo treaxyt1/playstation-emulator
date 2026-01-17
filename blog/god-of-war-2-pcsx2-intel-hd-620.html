@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JE0D96VNJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2JE0D96VNJ');
+    </script>
+
+    <title>God of War 2 PCSX2 Best Settings for Intel HD 620 (Low End Guide)</title>
+    <meta name="description"
+        content="Discover the best PCSX2 settings for God of War 2 on Intel HD 620 graphics. Optimize for 60fps gameplay on low-end laptops and PCs in 2026.">
+    <meta name="keywords"
+        content="God of War 2 PCSX2 settings, Intel HD 620 PCSX2, low end PC emulator settings, GOW2 PCSX2 lag fix">
+
+    <link rel="stylesheet" href="../css/design-system.css">
+    <style>
+        .article-container {
+            padding: 180px 0 100px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .article-content h2 {
+            margin: 50px 0 25px;
+            color: var(--cyan-accent);
+            font-size: 2rem;
+        }
+
+        .article-content p {
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .featured-image {
+            width: 100%;
+            border-radius: 24px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .settings-box {
+            background: rgba(0, 55, 145, 0.1);
+            border-left: 4px solid var(--ps-blue-light);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .settings-box h4 {
+            color: var(--ps-blue-light);
+            margin-bottom: 15px;
+        }
+
+        .internal-link {
+            color: var(--cyan-accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: 0.2s;
+        }
+
+        .internal-link:hover {
+            border-bottom-color: var(--cyan-accent);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="scrolled">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo">ePSX<span>emu</span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../roms.html">Find ROMs</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article class="container article-container">
+        <header class="article-header">
+            <span class="blog-tag"
+                style="color:var(--cyan-accent); font-size:0.7rem; font-weight:800; text-transform:uppercase;">Performance
+                Guide</span>
+            <h1 class="text-gradient" style="font-size: 3rem; margin-bottom: 20px;">God of War 2 PCSX2 Best Settings for
+                Intel HD 620</h1>
+            <p style="font-size: 1.2rem; color: var(--text-secondary);">Unlock 60FPS on integrated graphics with this
+                definitive optimization guide.</p>
+        </header>
+
+        <img src="images/gow2-intel-hd620.png" alt="God of War 2 on Intel HD 620 PCSX2 Best Settings"
+            class="featured-image">
+
+        <div class="article-content">
+            <p>Running a masterpiece like <strong>God of War 2</strong> on an integrated GPU like the <strong>Intel HD
+                    620</strong> might seem like an impossible task. However, with the latest versions of PCSX2 and the
+                right configuration, you can achieve a stable, playable experience that rivals the original hardware.
+            </p>
+
+            <h2>Why Intel HD 620 Struggles</h2>
+            <p>The Intel HD 620 is a mobile integrated graphics chip found in many laptops. It lacks dedicated VRAM,
+                relying instead on your system's RAM. God of War 2 is one of the most demanding titles for the PS2,
+                pushing the emulator's GS (Graphics Synthesizer) thread to its limits.</p>
+
+            <div class="settings-box">
+                <h4>🚀 Recommended Core Settings</h4>
+                <ul>
+                    <li><strong>EE/VOPs:</strong> Speedhacks enabled. Set EE Cycle Rate to -1 or -2.</li>
+                    <li><strong>V01/V02:</strong> Set to Multi-Threaded microVU1 (MTVU). This is critical for dual-core
+                        CPUs.</li>
+                    <li><strong>Renderer:</strong> Direct3D 11 (Hardware) or Vulkan. Vulkan generally performs better on
+                        newer Intel drivers.</li>
+                </ul>
+            </div>
+
+            <h2>Optimization Walkthrough</h2>
+            <p>To get the most out of your Intel HD 620, follow these specific steps in the PCSX2 Graphics Plugin
+                Settings:</p>
+
+            <h3>1. Internal Resolution</h3>
+            <p>Keep the Internal Resolution at <strong>Native (PS2)</strong>. While 720p (2x Native) looks better, the
+                Intel HD 620 will likely drop frames in intense combat scenes. If you have 8GB of dual-channel RAM, you
+                might squeeze out 720p, but for competitive 60FPS, Native is king.</p>
+
+            <h3>2. Textures and Filtering</h3>
+            <ul>
+                <li><strong>Texture Filtering:</strong> Bilinear (PS2). Avoid "Forced" settings.</li>
+                <li><strong>Anisotropic Filtering:</strong> Off. This saves significant bandwidth on integrated
+                    graphics.</li>
+                <li><strong>Mipmapping:</strong> Basic (Fast).</li>
+            </ul>
+
+            <h3>3. Accuracy Blending</h3>
+            <p>Set Accuracy Blending to <strong>Basic</strong> or <strong>None</strong>. While this might cause minor
+                visual artifacts (like shadows looking slightly off), it provides a massive boost to the framerate.</p>
+
+            <div class="settings-box">
+                <h4>🛠️ Advanced Hacks for GOW2</h4>
+                <p>Go to the Hacks tab and enable:</p>
+                <ul>
+                    <li><strong>Align Sprite:</strong> Fixes vertical lines in some resolutions.</li>
+                    <li><strong>Manual Hardware Renderer Fixes:</strong> Enable this to access specific game fixes.</li>
+                </ul>
+            </div>
+
+            <h2>Common Issues</h2>
+            <p>If you experience the notorious green screen glitch, check our companion guide on <a
+                    href="god-of-war-2-pcsx2-green-screen-fix.html" class="internal-link">removing the green screen
+                    glitch in God of War 2</a>.</p>
+
+            <p>For more general emulation tips, don't miss our <a href="../guide.html" class="internal-link">PlayStation
+                    Emulation Guide</a>.</p>
+
+            <h2>Conclusion</h2>
+            <p>With these settings, your Intel HD 620 should handle God of War 2 with grace. Remember to keep your
+                laptop plugged into power and set your Windows Power Plan to "High Performance" to avoid CPU throttling.
+            </p>
+        </div>
+    </article>
+
+    <footer style="padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+        <p style="font-size:0.75rem; color:var(--text-muted);">© 2026 ePSXemu Team. God of War 2 is a trademark of Sony
+            Interactive Entertainment.</p>
+    </footer>
+</body>
+
+</html>

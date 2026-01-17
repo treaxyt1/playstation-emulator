@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JE0D96VNJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2JE0D96VNJ');
+    </script>
+
+    <title>Frequently Asked Questions | ePSXemu</title>
+    <link rel="stylesheet" href="css/design-system.css">
+    <style>
+        .page-header {
+            padding: 180px 0 60px;
+            text-align: center;
+        }
+
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 100px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 16px;
+            transition: 0.3s;
+        }
+
+        .faq-q {
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: var(--cyan-accent);
+        }
+
+        .faq-a {
+            padding: 0 25px 25px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-item.active .faq-a {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">ePSX<span>emu</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="roms.html">Find ROMs</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header container">
+        <h1 class="text-gradient">Common Questions</h1>
+        <p style="color:var(--text-secondary); margin-top:15px;">Need help? Check out our most frequently asked
+            questions.</p>
+    </header>
+
+    <div class="container faq-section">
+        <div class="faq-item glass active">
+            <div class="faq-q">What is ePSXemu? <span>▼</span></div>
+            <div class="faq-a">ePSXemu is a browser-based PlayStation 1 emulator. It allows you to play classic PS1
+                games directly in your web browser without installing any software. We use high-performance WebAssembly
+                technology to deliver a near-native gaming experience.</div>
+        </div>
+
+        <div class="faq-item glass">
+            <div class="faq-q">Where do I get the games? <span>▼</span></div>
+            <div class="faq-a">To use ePSXemu, you must provide your own game files in .bin format. We do not provide,
+                host, or link to any copyrighted game data. You can back up your own physical discs using a PC. Check
+                our <a href="roms.html">Find ROMs</a> page for legal preservation sites.</div>
+        </div>
+
+        <div class="faq-item glass">
+            <div class="faq-q">Is it really free? <span>▼</span></div>
+            <div class="faq-a">Yes, ePSXemu is 100% free and open source. We are supported by the community and retro
+                gaming enthusiasts.</div>
+        </div>
+
+        <div class="faq-item glass">
+            <div class="faq-q">How do I save my progress? <span>▼</span></div>
+            <div class="faq-a">ePSXemu supports 'Save States'. You can save your exact position in the game at any time
+                using the Save button in the control panel. These saves are stored securely in your browser's local
+                database.</div>
+        </div>
+
+        <div class="faq-item glass">
+            <div class="faq-q">Can I use a controller? <span>▼</span></div>
+            <div class="faq-a">Absolutely. ePSXemu supports any standard USB or Bluetooth gamepads recognized by your
+                browser, including Xbox and PlayStation controllers. Plug it in, and the emulator will automatically
+                detect it.</div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.onclick = () => {
+                q.parentElement.classList.toggle('active');
+            };
+        });
+    </script>
+
+    <footer style="padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+        <p style="font-size:0.75rem; color:var(--text-muted);">© 2026 ePSXemu Support.</p>
+    </footer>
+</body>
+
+</html>

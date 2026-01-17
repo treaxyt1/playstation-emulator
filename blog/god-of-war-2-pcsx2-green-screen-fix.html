@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JE0D96VNJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2JE0D96VNJ');
+    </script>
+
+    <title>God of War 2 Remove Green Screen Glitch PCSX2 Low End Fix</title>
+    <meta name="description"
+        content="Learn how to fix the God of War 2 green screen glitch on PCSX2. Step-by-step tutorial for low-end PC users to get clear visuals in 2026.">
+    <meta name="keywords"
+        content="GOW2 green screen fix PCSX2, God of War 2 glitch remove, PCSX2 low end fix, ps2 emulator green tint">
+
+    <link rel="stylesheet" href="../css/design-system.css">
+    <style>
+        .article-container {
+            padding: 180px 0 100px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .article-content h2 {
+            margin: 50px 0 25px;
+            color: var(--neon-pink);
+            font-size: 2rem;
+        }
+
+        .article-content p {
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .featured-image {
+            width: 100%;
+            border-radius: 24px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 30px rgba(236, 72, 153, 0.3);
+        }
+
+        .fix-box {
+            background: rgba(236, 72, 153, 0.1);
+            border-left: 4px solid var(--neon-pink);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .fix-box h4 {
+            color: var(--neon-pink);
+            margin-bottom: 15px;
+        }
+
+        .internal-link {
+            color: var(--cyan-accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: 0.2s;
+        }
+
+        .internal-link:hover {
+            border-bottom-color: var(--cyan-accent);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="scrolled">
+        <div class="container nav-content">
+            <a href="../index.html" class="logo">ePSX<span>emu</span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../roms.html">Find ROMs</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article class="container article-container">
+        <header class="article-header">
+            <span class="blog-tag"
+                style="color:var(--neon-pink); font-size:0.7rem; font-weight:800; text-transform:uppercase;">Bug
+                Fix</span>
+            <h1 class="text-gradient" style="font-size: 3rem; margin-bottom: 20px;">God of War 2: Remove Green Screen
+                Glitch on PCSX2</h1>
+            <p style="font-size: 1.2rem; color: var(--text-secondary);">Fix the annoying semi-transparent green overlay
+                and enjoy GOW2 in crystal clear quality.</p>
+        </header>
+
+        <img src="images/gow2-green-screen-fix.png" alt="God of War 2 Green Screen Glitch Fix PCSX2"
+            class="featured-image">
+
+        <div class="article-content">
+            <p>One of the most persistent visual issues in <strong>God of War 2</strong> on <strong>PCSX2</strong> is
+                the "Green Screen Glitch." This bug covers the screen in a semi-transparent green tint, making it almost
+                impossible to appreciate the game's stunning art style. This happens primarily on low-end hardware or
+                when using specific hardware renderers.</p>
+
+            <h2>Why is the Screen Green?</h2>
+            <p>This issue is usually caused by the way the emulator handles "Depth of Field" or "Fog" effects in the
+                original PS2 code. On certain GPUs (especially integrated ones), these effects aren't rendered
+                correctly, resulting in the green overlay. It can also be triggered by using "Hardware Hacks" without
+                the correct offsets.</p>
+
+            <div class="fix-box">
+                <h4>🛠️ The Instant Fix: skipdraw</h4>
+                <p>The most effective way to remove the green screen is using the <strong>skipdraw</strong> hack:</p>
+                <ul>
+                    <li>Go to <strong>Config</strong> > <strong>Graphics Settings</strong>.</li>
+                    <li>Navigate to the <strong>Hacks</strong> tab (Enable Manual Hardware Renderer Fixes first).</li>
+                    <li>Find <strong>Skipdraw Range</strong>.</li>
+                    <li>Set both values to <strong>1</strong> (or set Skipdraw to 1-3 depending on your version).</li>
+                    <li>This will "skip" the rendering of the broken frame buffers causing the green tint.</li>
+                </ul>
+            </div>
+
+            <h2>Alternative Fixes for Low End PCs</h2>
+            <p>If skipdraw causes other visual issues (like disappearing menus), try these alternatives:</p>
+
+            <h3>1. Half-Pixel Offset</h3>
+            <p>In the same Hacks menu, find <strong>Half-Pixel Offset</strong>. Set it to <strong>Special
+                    (Texture)</strong>. This can sometimes align the malfunctioning buffers correctly without needing to
+                skip them entirely.</p>
+
+            <h3>2. Use Vulkan Renderer</h3>
+            <p>The Vulkan API handles PS2 effects much more accurately than OpenGL or Direct3D 11 on modern low-end
+                hardware. Switching your Renderer to <strong>Vulkan</strong> in the Graphics tab often resolves the
+                green tint automatically.</p>
+
+            <h3>3. Blending Accuracy</h3>
+            <p>Switch your <strong>Blending Accuracy</strong> to <strong>High</strong> or <strong>Full</strong>. While
+                this is more taxing on the GPU, it is the most accurate way to fix the glitch without using hacks. If
+                your PC can handle it, this is the preferred method.</p>
+
+            <div class="fix-box">
+                <h4>💡 Pro Tip for Low-End Users</h4>
+                <p>If you are using an Intel HD GPU, make sure to read our <a
+                        href="god-of-war-2-pcsx2-intel-hd-620.html" class="internal-link">GOW2 settings guide for Intel
+                        HD 620</a> to balance performance with visual clarity.</p>
+            </div>
+
+            <h2>Conclusion</h2>
+            <p>Don't let a green filter ruin your experience as the Ghost of Sparta. Using <strong>Skipdraw 1</strong>
+                is the easiest solution for most users, especially on low-end laptops. For more technical help, visit
+                our <a href="../support.html" class="internal-link">Support Center</a>.</p>
+        </div>
+    </article>
+
+    <footer style="padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+        <p style="font-size:0.75rem; color:var(--text-muted);">© 2026 ePSXemu Team. Gaming preservation at its finest.
+        </p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JE0D96VNJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2JE0D96VNJ');
+    </script>
+
+    <title>Support - ePSXemu Help Center</title>
+    <meta name="description"
+        content="Get help with ePSXemu. Troubleshooting guides, FAQs, and support resources for PlayStation browser emulation.">
+    <link rel="stylesheet" href="css/design-system.css">
+    <style>
+        .page-header {
+            padding: 180px 0 60px;
+            text-align: center;
+        }
+
+        .support-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding-bottom: 100px;
+        }
+
+        .support-card {
+            padding: 40px;
+            border-radius: 24px;
+            margin-bottom: 30px;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .support-item {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .support-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .support-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .support-item h3 {
+            color: var(--cyan-accent);
+            margin-bottom: 10px;
+        }
+
+        .support-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .troubleshoot-section {
+            margin-top: 60px;
+        }
+
+        .troubleshoot-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+        }
+
+        .troubleshoot-item h4 {
+            color: var(--cyan-accent);
+            margin-bottom: 15px;
+        }
+
+        .troubleshoot-item ul {
+            color: var(--text-secondary);
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 120px 0 40px;
+            }
+
+            .support-card {
+                padding: 25px;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">ePSX<span>emu</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="roms.html">Find ROMs</a></li>
+                <li><a href="guide.html">Guides</a></li>
+                <li><a href="games.html">Database</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header container">
+        <h1 class="text-gradient">Support Center</h1>
+        <p style="color:var(--text-secondary); margin-top:15px; max-width:600px; margin-left:auto; margin-right:auto;">
+            Find answers, troubleshoot issues, and get help with ePSXemu</p>
+    </header>
+
+    <div class="container support-container">
+        <!-- Quick Links -->
+        <div class="support-grid">
+            <a href="faq.html" class="support-item" style="text-decoration: none; color: inherit;">
+                <div class="support-icon">❓</div>
+                <h3>FAQ</h3>
+                <p>Frequently asked questions about PlayStation emulation</p>
+                <span class="btn btn-outline" style="font-size: 0.85rem; padding: 8px 20px;">View FAQ</span>
+            </a>
+
+            <a href="guide.html" class="support-item" style="text-decoration: none; color: inherit;">
+                <div class="support-icon">📖</div>
+                <h3>User Guide</h3>
+                <p>Complete guide to using ePSXemu</p>
+                <span class="btn btn-outline" style="font-size: 0.85rem; padding: 8px 20px;">Read Guide</span>
+            </a>
+
+            <a href="contact.html" class="support-item" style="text-decoration: none; color: inherit;">
+                <div class="support-icon">💬</div>
+                <h3>Contact Us</h3>
+                <p>Get in touch with our support team</p>
+                <span class="btn btn-outline" style="font-size: 0.85rem; padding: 8px 20px;">Contact</span>
+            </a>
+        </div>
+
+        <!-- Troubleshooting Section -->
+        <div class="support-card glass troubleshoot-section">
+            <h2 style="margin-bottom: 30px;">Common Issues & Solutions</h2>
+
+            <div class="troubleshoot-item">
+                <h4>🎮 Game Won't Load</h4>
+                <ul>
+                    <li>Ensure your ROM file is in .BIN format (not .ISO or .IMG)</li>
+                    <li>Check that the file size is between 200-700MB (typical PS1 game size)</li>
+                    <li>Try a different ROM file - your current file may be corrupted</li>
+                    <li>Clear your browser cache and reload the page</li>
+                    <li>Make sure you have both .BIN and .CUE files if the game requires them</li>
+                </ul>
+            </div>
+
+            <div class="troubleshoot-item">
+                <h4>⚡ Performance Issues / Lag</h4>
+                <ul>
+                    <li>Enable hardware acceleration in your browser settings</li>
+                    <li>Close unnecessary browser tabs to free up RAM</li>
+                    <li>Disable browser extensions that might interfere</li>
+                    <li>Use Chrome or Edge for best performance</li>
+                    <li>Lower graphics settings in the emulator if available</li>
+                    <li>Ensure your device meets minimum requirements (4GB RAM, modern CPU)</li>
+                </ul>
+            </div>
+
+            <div class="troubleshoot-item">
+                <h4>🎧 Audio Crackling or No Sound</h4>
+                <ul>
+                    <li>Increase the audio buffer size in emulator settings</li>
+                    <li>Close other applications using audio</li>
+                    <li>Check your browser's audio permissions</li>
+                    <li>Try refreshing the page</li>
+                    <li>Ensure your system volume is not muted</li>
+                </ul>
+            </div>
+
+            <div class="troubleshoot-item">
+                <h4>🎯 Controller Not Working</h4>
+                <ul>
+                    <li>Check that your browser has gamepad permissions enabled</li>
+                    <li>Unplug and reconnect your controller</li>
+                    <li>Try a different USB port</li>
+                    <li>For Bluetooth controllers, ensure they're properly paired</li>
+                    <li>Use keyboard controls as a fallback (see controls in the help modal)</li>
+                    <li>On mobile, the touch gamepad should appear automatically</li>
+                </ul>
+            </div>
+
+            <div class="troubleshoot-item">
+                <h4>💾 Save States Not Working</h4>
+                <ul>
+                    <li>Ensure your browser allows local storage</li>
+                    <li>Check that you're not in private/incognito mode</li>
+                    <li>Clear browser cache and try again</li>
+                    <li>Make sure you have enough storage space</li>
+                    <li>Try using in-game saves instead of save states</li>
+                </ul>
+            </div>
+
+            <div class="troubleshoot-item">
+                <h4>📱 Mobile Gamepad Issues</h4>
+                <ul>
+                    <li>Ensure your screen width is below 768px for gamepad to appear</li>
+                    <li>Try rotating your device to landscape mode</li>
+                    <li>Adjust gamepad opacity and size in settings (⚙️ button)</li>
+                    <li>Enable haptic feedback in gamepad settings if supported</li>
+                    <li>Refresh the page if gamepad doesn't appear</li>
+                </ul>
+            </div>
+
+            <div class="troubleshoot-item">
+                <h4>🌐 Browser Compatibility</h4>
+                <ul>
+                    <li><strong>Best:</strong> Chrome 100+, Edge 100+, Brave 1.40+</li>
+                    <li><strong>Good:</strong> Firefox 100+, Safari 15+</li>
+                    <li><strong>Mobile:</strong> Chrome/Safari on iOS 13+, Android 8+</li>
+                    <li>Update your browser to the latest version for best results</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Additional Resources -->
+        <div
+            style="margin-top: 60px; padding: 30px; background: rgba(0, 217, 255, 0.1); border-radius: 16px; border-left: 4px solid var(--cyan-accent);">
+            <h3 style="color: var(--cyan-accent); margin-bottom: 15px;">Still Need Help?</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+                If you couldn't find a solution to your problem, here are more resources:
+            </p>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-primary">Contact Support</a>
+                <a href="faq.html" class="btn btn-outline">View Full FAQ</a>
+                <a href="https://github.com/lrusso/PlayStation/issues" target="_blank" class="btn btn-outline">Report
+                    Bug on GitHub</a>
+            </div>
+        </div>
+
+        <!-- System Requirements -->
+        <div class="support-card glass" style="margin-top: 40px;">
+            <h3 style="margin-bottom: 20px; color: var(--cyan-accent);">System Requirements</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 10px;">Minimum</h4>
+                    <ul style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8;">
+                        <li>Modern browser (Chrome, Firefox, Edge, Safari)</li>
+                        <li>4GB RAM</li>
+                        <li>Dual-core CPU (2GHz+)</li>
+                        <li>WebGL 2.0 support</li>
+                        <li>Stable internet connection</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 10px;">Recommended</h4>
+                    <ul style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8;">
+                        <li>Chrome or Edge (latest version)</li>
+                        <li>8GB+ RAM</li>
+                        <li>Quad-core CPU (2.5GHz+)</li>
+                        <li>Dedicated GPU</li>
+                        <li>Hardware acceleration enabled</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+        <div class="container">
+            <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom: 20px;">© 2026 ePSXemu Support Center
+            </p>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="about.html" style="color: var(--text-muted); text-decoration: none;">About</a>
+                <a href="disclaimer.html" style="color: var(--text-muted); text-decoration: none;">Disclaimer</a>
+                <a href="privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy</a>
+                <a href="terms.html" style="color: var(--text-muted); text-decoration: none;">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

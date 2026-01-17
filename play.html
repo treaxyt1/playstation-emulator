@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JE0D96VNJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2JE0D96VNJ');
+    </script>
+
+    <title>Play Now | PSX WebHub Emulator</title>
+    <link rel="stylesheet" href="css/design-system.css">
+    <style>
+        .page-container {
+            padding-top: 100px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .emulator-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 24px;
+            flex: 1;
+            padding-bottom: 40px;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-section {
+            padding: 24px;
+            border-radius: 16px;
+        }
+
+        .emulator-container {
+            position: relative;
+            aspect-ratio: 4/3;
+            max-height: 80vh;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            background: #000;
+        }
+
+        #emulator-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .controls-hint {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            font-size: 0.8rem;
+        }
+
+        .key-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: hsl(var(--cyan-accent));
+        }
+
+        .drop-zone {
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .drop-zone.active {
+            border-color: hsl(var(--cyan-accent));
+            background: rgba(0, 217, 255, 0.05);
+        }
+
+        .game-list {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto;
+            max-height: 300px;
+        }
+
+        .game-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .game-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .game-thumb {
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            background: #333;
+            display: grid;
+            place-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .emulator-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                order: 2;
+            }
+
+            .emulator-container {
+                order: 1;
+            }
+        }
+
+        /* Fullscreen styles */
+        .fullscreen-active .emulator-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            max-height: 100vh;
+            border-radius: 0;
+            z-index: 2000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 12h12M12 6v12M12 12l4 4M12 12l-4-4" />
+                    </svg>
+                </div>
+                PSX<span>WebHub</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="play.html">Play Now</a></li>
+                <li><a href="guide.html">How It Works</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-container">
+        <div class="emulator-layout">
+            <aside class="sidebar">
+                <div class="sidebar-section glass">
+                    <h3 style="font-size:1rem; margin-bottom:15px;">Load Game</h3>
+                    <div id="drop-zone" class="drop-zone">
+                        <p style="font-size:0.8rem; color:hsl(var(--text-muted));">Drag & Drop .bin file here</p>
+                        <input type="file" id="file-input" accept=".bin" style="display:none">
+                    </div>
+                </div>
+
+                <div class="sidebar-section glass">
+                    <h3 style="font-size:1rem; margin-bottom:15px;">Controls</h3>
+                    <div class="controls-hint">
+                        <span>Up/Down</span> <span class="key-box">Arrows</span>
+                        <span>Start</span> <span class="key-box">V</span>
+                        <span>Select</span> <span class="key-box">C</span>
+                        <span>Cross</span> <span class="key-box">Z</span>
+                        <span>Circle</span> <span class="key-box">X</span>
+                        <span>Square</span> <span class="key-box">S</span>
+                        <span>Triangle</span> <span class="key-box">D</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section glass">
+                    <h3 style="font-size:1rem; margin-bottom:15px;">Your Library</h3>
+                    <div class="game-list" id="game-library">
+                        <!-- Placeholder for dyn content -->
+                        <div class="game-item">
+                            <div class="game-thumb">🎮</div>
+                            <span>Recently Played</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <div style="display:flex; flex-direction:column; gap:16px;">
+                <div class="emulator-container">
+                    <iframe id="emulator-iframe" src="PlayStationMenu.htm" allow="autoplay; gamepad"></iframe>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div style="display:flex; gap:12px;">
+                        <button class="btn btn-ghost" id="restart-btn"
+                            style="padding: 8px 16px; font-size: 0.7rem;">Restart Game</button>
+                        <button class="btn btn-ghost" id="mute-btn" style="padding: 8px 16px; font-size: 0.7rem;">Toggle
+                            Audio</button>
+                    </div>
+                    <button class="btn btn-primary" id="fullscreen-btn"
+                        style="padding: 8px 16px; font-size: 0.7rem;">Enter Fullscreen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+        <p style="color:hsl(var(--text-muted)); font-size:0.8rem;">&copy; 2026 PSX WebHub. Powered by Open Source
+            Emulation.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

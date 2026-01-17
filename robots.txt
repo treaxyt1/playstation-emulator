@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://your-psx-hub.com/sitemap.xml

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JE0D96VNJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2JE0D96VNJ');
+    </script>
+
+    <title>ePSXemu Blog - Emulation News & Guides</title>
+    <link rel="stylesheet" href="css/design-system.css">
+    <style>
+        .page-header {
+            padding: 180px 0 60px;
+            text-align: center;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .blog-card {
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--cyan-accent);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.1);
+        }
+
+        .blog-img-container {
+            height: 220px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .blog-card:hover .blog-img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-tag {
+            color: var(--cyan-accent);
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .blog-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: auto;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">ePSX<span>emu</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="roms.html">Find ROMs</a></li>
+                <li><a href="blog.html" style="color:var(--cyan-accent)">Blog</a></li>
+            </ul>
+            <div style="display:flex; gap:10px;">
+                <a href="contact.html" class="btn btn-outline" style="padding:8px 20px; font-size:12px;">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header container">
+        <h1 class="text-gradient">ePSXemu Editorial</h1>
+        <p
+            style="color:var(--text-secondary); margin-top:15px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Expert guides, performance optimizations, and the latest news in the world of PlayStation emulation.
+        </p>
+    </header>
+
+    <div class="container">
+        <div class="blog-grid">
+            <!-- Article 1: GOW2 Intel HD 620 -->
+            <article class="blog-card glass">
+                <div class="blog-img-container">
+                    <img src="blog/images/gow2-intel-hd620.png" alt="God of War 2 Intel HD 620 Settings"
+                        class="blog-img">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-tag">Optimization</span>
+                    <h3>GOW 2: Best PCSX2 Settings for Intel HD 620</h3>
+                    <p style="margin:15px 0; font-size:0.9rem; color:var(--text-secondary);">How to achieve smooth 60fps
+                        in God of War 2 on integrated graphics. Complete low-end configuration guide.</p>
+                    <a href="blog/god-of-war-2-pcsx2-intel-hd-620.html" class="btn btn-primary"
+                        style="font-size:12px; align-self:flex-start;">Read Article</a>
+                    <div class="blog-date">Jan 14, 2026 • 1,200 words</div>
+                </div>
+            </article>
+
+            <!-- Article 2: GOW2 Green Screen -->
+            <article class="blog-card glass">
+                <div class="blog-img-container">
+                    <img src="blog/images/gow2-green-screen-fix.png" alt="Fix God of War 2 Green Screen PCSX2"
+                        class="blog-img">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-tag">Bug Fix</span>
+                    <h3>Fix: God of War 2 Green Screen Glitch on PCSX2</h3>
+                    <p style="margin:15px 0; font-size:0.9rem; color:var(--text-secondary);">Is your screen turning
+                        green in GOW2? Here is the simple skipdraw hack to fix it permanently on low-end PCs.</p>
+                    <a href="blog/god-of-war-2-pcsx2-green-screen-fix.html" class="btn btn-primary"
+                        style="font-size:12px; align-self:flex-start;">Read Article</a>
+                    <div class="blog-date">Jan 14, 2026 • 850 words</div>
+                </div>
+            </article>
+
+            <!-- Article 3: Tekken 5 4GB RAM -->
+            <article class="blog-card glass">
+                <div class="blog-img-container">
+                    <img src="blog/images/tekken5-60fps-4gb.png" alt="Tekken 5 60FPS PCSX2 4GB RAM" class="blog-img">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-tag">Performance</span>
+                    <h3>Tekken 5: 60FPS Settings for 4GB RAM Laptops</h3>
+                    <p style="margin:15px 0; font-size:0.9rem; color:var(--text-secondary);">Master every combo without
+                        lag. Optimal PCSX2 settings for memory-constrained systems.</p>
+                    <a href="blog/tekken-5-pcsx2-60fps-4gb-laptop.html" class="btn btn-primary"
+                        style="font-size:12px; align-self:flex-start;">Read Article</a>
+                    <div class="blog-date">Jan 14, 2026 • 1,100 words</div>
+                </div>
+            </article>
+
+            <!-- Article 4: Browser Guide -->
+            <article class="blog-card glass">
+                <div class="blog-img-container">
+                    <img src="blog/images/play-ps1-browser.png" alt="Play PS1 Games in Browser" class="blog-img">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-tag">Tutorial</span>
+                    <h3>How to Play PS1 Games in Your Browser: 2026 Guide</h3>
+                    <p style="margin:15px 0; font-size:0.9rem; color:var(--text-secondary);">The definitive guide to
+                        zero-download PlayStation emulation. Cross-platform support with mobile touch controls.</p>
+                    <a href="blog/play-ps1-browser-2026.html" class="btn btn-primary"
+                        style="font-size:12px; align-self:flex-start;">Read Article</a>
+                    <div class="blog-date">Jan 14, 2026 • 3,000 words</div>
+                </div>
+            </article>
+
+            <!-- Article 5: Legal ROMs -->
+            <article class="blog-card glass">
+                <div class="blog-img-container">
+                    <img src="blog/images/legal-roms.png" alt="Legal PlayStation ROMs" class="blog-img">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-tag">Legal</span>
+                    <h3>Legal PlayStation ROMs: Where to Find Them in 2026</h3>
+                    <p style="margin:15px 0; font-size:0.9rem; color:var(--text-secondary);">Stay safe and legal. A
+                        complete list of trusted sources and disc dumping methods for PS1 games.</p>
+                    <a href="blog/legal-playstation-roms-2026.html" class="btn btn-primary"
+                        style="font-size:12px; align-self:flex-start;">Read Article</a>
+                    <div class="blog-date">Jan 14, 2026 • 3,500 words</div>
+                </div>
+            </article>
+
+            <!-- Article 6: Emulation Guide -->
+            <article class="blog-card glass">
+                <div class="blog-img-container">
+                    <img src="blog/images/ps1-guide-2026.png" alt="PlayStation Emulation Guide 2026" class="blog-img">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-tag">Preservation</span>
+                    <h3>The Complete Guide to PS Emulation in 2026</h3>
+                    <p style="margin:15px 0; font-size:0.9rem; color:var(--text-secondary);">An exhaustive look at the
+                        state of PlayStation emulation, from plugins to WebAssembly and beyond.</p>
+                    <a href="blog-guide-2026.html" class="btn btn-primary"
+                        style="font-size:12px; align-self:flex-start;">Read Article</a>
+                    <div class="blog-date">Jan 12, 2026 • 2,400 words</div>
+                </div>
+            </article>
+
+            <!-- Article 7: Golden Age -->
+            <article class="blog-card glass">
+                <div class="blog-img-container">
+                    <img src="blog/images/golden-age-ps1.png" alt="Golden Age of PlayStation" class="blog-img">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-tag">History</span>
+                    <h3>The Golden Age of PlayStation: Games Worth Preserving</h3>
+                    <p style="margin:15px 0; font-size:0.9rem; color:var(--text-secondary);">Exploring the cultural
+                        impact of the original PlayStation and why digital preservation is non-negotiable.</p>
+                    <a href="#" class="btn btn-primary" style="font-size:12px; align-self:flex-start;">Read Article</a>
+                    <div class="blog-date">Jan 08, 2026 • 2,100 words</div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <footer style="padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+        <p style="font-size:0.75rem; color:var(--text-muted);">© 2026 ePSXemu Editorial Team.</p>
+    </footer>
+</body>
+
+</html>

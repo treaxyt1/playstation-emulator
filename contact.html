@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JE0D96VNJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2JE0D96VNJ');
+    </script>
+
+    <title>Contact Us - ePSXemu Support</title>
+    <meta name="description"
+        content="Get in touch with the ePSXemu team. Contact us for support, feedback, or questions about PlayStation emulation.">
+    <link rel="stylesheet" href="css/design-system.css">
+    <style>
+        .page-header {
+            padding: 180px 0 60px;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 100px;
+        }
+
+        .contact-card {
+            padding: 40px;
+            border-radius: 24px;
+            margin-bottom: 30px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-method:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, hsl(var(--ps-blue)), hsl(var(--ps-blue-light)));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 8px;
+            color: var(--cyan-accent);
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .faq-section {
+            margin-top: 60px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 15px;
+        }
+
+        .faq-item h4 {
+            color: var(--cyan-accent);
+            margin-bottom: 10px;
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 120px 0 40px;
+            }
+
+            .contact-card {
+                padding: 25px;
+            }
+
+            .contact-method {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">ePSX<span>emu</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="roms.html">Find ROMs</a></li>
+                <li><a href="guide.html">Guides</a></li>
+                <li><a href="games.html">Database</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header container">
+        <h1 class="text-gradient">Contact Us</h1>
+        <p style="color:var(--text-secondary); margin-top:15px; max-width:600px; margin-left:auto; margin-right:auto;">
+            Have questions, feedback, or need support? We're here to help!</p>
+    </header>
+
+    <div class="container contact-container">
+        <div class="contact-card glass">
+            <h2 style="margin-bottom: 30px;">Get in Touch</h2>
+
+            <!-- Telegram Contact -->
+            <a href="https://t.me/treaxyt" target="_blank" rel="noopener" class="contact-method">
+                <div class="contact-icon">📱</div>
+                <div class="contact-info">
+                    <h3>Telegram</h3>
+                    <p>Chat with us on Telegram for quick support and updates</p>
+                    <p style="color: var(--cyan-accent); margin-top: 5px; font-weight: 600;">Contact Support</p>
+                </div>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/lrusso/PlayStation" target="_blank" rel="noopener" class="contact-method">
+                <div class="contact-icon">💻</div>
+                <div class="contact-info">
+                    <h3>GitHub</h3>
+                    <p>Report bugs, request features, or contribute to the project</p>
+                    <p style="color: var(--cyan-accent); margin-top: 5px; font-weight: 600;">Visit Repository</p>
+                </div>
+            </a>
+
+            <!-- Community -->
+            <div class="contact-method" style="cursor: default; pointer-events: none;">
+                <div class="contact-icon">👥</div>
+                <div class="contact-info">
+                    <h3>Community</h3>
+                    <p>Join discussions about PlayStation emulation and game preservation</p>
+                    <p style="color: var(--text-muted); margin-top: 5px; font-size: 0.85rem;">Coming Soon</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Help Section -->
+        <div class="faq-section">
+            <h2 style="margin-bottom: 30px;">Quick Help</h2>
+
+            <div class="faq-item">
+                <h4>Before Contacting Support</h4>
+                <p>Please check our <a href="faq.html" style="color: var(--cyan-accent);">FAQ page</a> and <a
+                        href="guide.html" style="color: var(--cyan-accent);">user guide</a> first. Most common questions
+                    are answered there.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Bug Reports</h4>
+                <p>If you've found a bug, please report it on our <a href="https://github.com/lrusso/PlayStation/issues"
+                        target="_blank" style="color: var(--cyan-accent);">GitHub Issues page</a> with details about
+                    your browser, operating system, and steps to reproduce.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>ROM Support</h4>
+                <p>We cannot provide ROM files or help with obtaining them. Please see our <a href="roms.html"
+                        style="color: var(--cyan-accent);">ROM resources page</a> for legal information and trusted
+                    sources.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Response Time</h4>
+                <p>We typically respond within 24-48 hours on Telegram. GitHub issues may take longer depending on
+                    complexity.</p>
+            </div>
+        </div>
+
+        <!-- Additional Info -->
+        <div
+            style="margin-top: 60px; padding: 30px; background: rgba(0, 217, 255, 0.1); border-radius: 16px; border-left: 4px solid var(--cyan-accent);">
+            <h3 style="color: var(--cyan-accent); margin-bottom: 15px;">Support the Project</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6;">
+                ePSXemu is a free, open-source project dedicated to game preservation. If you'd like to support
+                development, consider:
+            </p>
+            <ul style="color: var(--text-secondary); margin-top: 15px; padding-left: 20px;">
+                <li>Sharing ePSXemu with other retro gaming enthusiasts</li>
+                <li>Contributing code or documentation on GitHub</li>
+                <li>Reporting bugs and suggesting improvements</li>
+                <li>Spreading awareness about legal game preservation</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer style="padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+        <div class="container">
+            <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom: 20px;">© 2026 ePSXemu. Built for game
+                preservation.</p>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="about.html" style="color: var(--text-muted); text-decoration: none;">About</a>
+                <a href="disclaimer.html" style="color: var(--text-muted); text-decoration: none;">Disclaimer</a>
+                <a href="privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy</a>
+                <a href="terms.html" style="color: var(--text-muted); text-decoration: none;">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

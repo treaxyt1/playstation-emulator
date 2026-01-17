@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JE0D96VNJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2JE0D96VNJ');
+    </script>
+
+    <title>Features & Technology | ePSXemu</title>
+    <link rel="stylesheet" href="css/design-system.css">
+    <style>
+        .page-header {
+            padding: 180px 0 60px;
+            text-align: center;
+        }
+
+        .feature-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .feature-showcase:nth-child(even) {
+            direction: rtl;
+        }
+
+        .feature-showcase:nth-child(even) .feat-text {
+            direction: ltr;
+        }
+
+        .feat-img {
+            aspect-ratio: 16/9;
+            background: #1a1f3a;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feat-text h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: var(--cyan-accent);
+        }
+
+        .feat-text p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">ePSX<span>emu</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="games.html">Database</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header container">
+        <h1 class="text-gradient">The Future of Emulation</h1>
+        <p style="color:var(--text-secondary); margin-top:20px;">Built for the modern web using state-of-the-art
+            technologies.</p>
+    </header>
+
+    <div class="container">
+        <section class="feature-showcase">
+            <div class="feat-text">
+                <span class="section-tag">High Performance</span>
+                <h2>WebAssembly Binary Engine</h2>
+                <p>ePSXemu is powered by a custom build of the original PlayStation architecture ported to WebAssembly.
+                    This allows for instruction-level accuracy and near-native speeds directly inside Chrome, Edge, and
+                    Firefox. No plugins or native runtime required.</p>
+            </div>
+            <div class="feat-img glass" style="display:grid; place-items:center;">
+                <h3 style="font-size:3rem; color:var(--cyan-accent)">60 FPS</h3>
+            </div>
+        </section>
+
+        <section class="feature-showcase">
+            <div class="feat-text">
+                <span class="section-tag">Convenience</span>
+                <h2>Persistent IndexedDB Library</h2>
+                <p>Never lose a game again. Our local-first storage system saves your entire .bin collection into your
+                    browser's persistent database. Upload once, and your library is ready whenever you return to
+                    ePSXemu.com.</p>
+            </div>
+            <div class="feat-img glass" style="display:grid; place-items:center;">
+                <h3 style="font-size:3rem;">💾</h3>
+            </div>
+        </section>
+
+        <section class="feature-showcase">
+            <div class="feat-text">
+                <span class="section-tag">Compatibility</span>
+                <h2>Universal Controller Support</h2>
+                <p>Whether you're using a modern Xbox Series X controller, a classic DualShock 4, or a generic USB
+                    arcade stick, ePSXemu detects it instantly. We support the standard Gamepad API for ultra-low
+                    latency input mapping.</p>
+            </div>
+            <div class="feat-img glass" style="display:grid; place-items:center;">
+                <h3 style="font-size:3rem;">🎮</h3>
+            </div>
+        </section>
+
+        <section class="section-padding glass" style="text-align:center; border-radius:30px; margin-bottom:100px;">
+            <h2 class="display-font">Mobile & PWA Ready</h2>
+            <p style="max-width:800px; margin:20px auto 40px; color:var(--text-secondary);">Take ePSXemu with you.
+                Install our site as a Progressive Web App (PWA) on your iOS or Android device to play your library with
+                customized on-screen touch controls. Retro gaming has never been this portable.</p>
+            <div style="display:flex; justify-content:center; gap:20px;">
+                <div class="glass-pill">iOS Support</div>
+                <div class="glass-pill">Android Optimized</div>
+                <div class="glass-pill">Offline Playable</div>
+            </div>
+        </section>
+    </div>
+
+    <footer style="padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+        <p style="font-size:0.75rem; color:var(--text-muted);">© 2026 ePSXemu Technology Lab.</p>
+    </footer>
+</body>
+
+</html>
